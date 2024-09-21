@@ -1,0 +1,281 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #E8ECEB; /* Light background */
+    overflow-x: hidden;
+    color: #2D3E4E; /* Dark text */
+}
+
+@keyframes slide-in {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in {
+    animation: slide-in 1s ease forwards;
+    opacity: 1;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2D3E4E; /* Dark background */
+    color: white; /* White text for contrast */
+    padding: 10px;
+}
+
+.cart-account {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.cart-account a {
+    margin-left: 20px;
+    color: #E09E50; /* Accent color for icons */
+    font-size: 24px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.cart-account a:hover {
+    color: white; /* White on hover */
+    transform: scale(1.1);
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #8CBDB9; /* Teal border */
+    transition: width 0.3s ease;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:focus {
+    width: 400px;
+    border-color: #E09E50; /* Change border color on focus */
+}
+
+.store-banner {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white; /* White text */
+    animation: background-change 6s infinite alternate;
+    position: relative;
+    background-color: #2D3E4E; /* Dark background */
+}
+
+.carousel-images {
+    position: relative;
+    margin-left: 0px;
+    margin-right: 40px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.carousel-img {
+    position: absolute;
+    top: 0;
+    margin-left: 0px;
+    margin-right: 20px;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: left 1s ease;
+}
+
+.carousel-img.active {
+    left: 0;
+}
+
+.category-filters button {
+    background-color: #8CBDB9; /* Accent color */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category-filters button:hover {
+    background-color: #E09E50; /* Change hover color */
+}
+
+.items .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.items .item {
+    background-color: #fff; /* White background for items */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.items .item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.items .item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.items .item p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #2D3E4E; /* Dark text for item descriptions */
+}
+
+.items .add-to-cart {
+    background-color: #E09E50; /* Accent color */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.items .add-to-cart:hover {
+    background-color: #8CBDB9; /* Teal on hover */
+}
+
+.footer {
+    background-color: #2D3E4E; /* Dark background */
+    color: #E8ECEB; /* Light text */
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #E8ECEB; /* Light text */
+    text-decoration: none;
+    margin: 10px;
+}
+
+footer a:hover {
+    color: #E09E50; /* Accent color on hover */
+}
+
+.store-discount {
+    margin: 3px;
+    padding: 2px 4px;
+    font-size: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: white; /* White text */
+}
+
+.store-discount i {
+    margin-right: 3px;
+    font-size: 10px;
+}
+
+/* Other animations and keyframes remain unchanged */
+
+.show-more {
+    background-color: #8CBDB9; /* Teal for the show more button */
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.animated-button {
+    padding: 10px;
+    background-color: #E09E50; /* Accent color */
+    border: none;
+    margin: 10px;
+    transition: transform 0.3s ease, background-color 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.animated-button:hover {
+    transform: scale(1.2) rotate(5deg);
+    background-color: #8CBDB9; /* Teal on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        background-color: #E09E50; /* Accent background for medium screens */
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .carousel-images {
+        margin: 0;
+    }
+
+    .items .item-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust for smaller screens */
+    }
+
+    input[type="text"] {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .store-banner {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: #8CBDB9; /* Teal background for very small screens */
+    }
+
+    .header-container {
+        padding: 20px;
+    }
+
+    .cart-account a {
+        font-size: 20px; /* Smaller icons */
+    }
+
+    .items .item {
+        padding: 10px; /* Reduced padding */
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2D3E4E;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}

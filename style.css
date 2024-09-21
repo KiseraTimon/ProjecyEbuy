@@ -1,0 +1,205 @@
+/* Reset some basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Main navigation styling */
+#navigation {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2; /* Ensures it stays on top of other elements */
+}
+
+#navigation ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+#navigation li {
+  margin-left: 10px;
+}
+
+#navigation li:first-child {
+  margin-left: 0;
+}
+
+/* Navigation anchors */
+#navigation a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+ /* background-color: rgba(255, 255, 255, 0.8); Semi-transparent background */
+  border-radius: 5px;
+}
+
+/* Hover effect for the button */
+#navigation a:hover {
+  background-color: black;
+ color: white;
+}
+
+/* Carousel styling */
+.carousel-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+/* Ensure the text remains visible */
+.carousel-container * {
+  color: white;
+}
+
+/* Discover and Search container styles */
+.discover, .search-container {
+  z-index: 1;
+  text-align: center;
+}
+
+.discover {
+  margin: 40px 0;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.go {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* General page layout */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, p {
+  text-align: center;
+}
+
+/* Header styling */
+.Name {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.login, .register {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.login {
+  right: 140px;
+}
+
+/* Logo and heading */
+.logo img {
+  width: 150px;
+  height: 150px;
+  margin-top: 20px;
+}
+
+/* Explore marketplace section */
+.explore {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+/* Container to hold the marketplace items */
+.marketplace-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  width: 100%;
+}
+
+/* Individual marketplace items */
+.marketplace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure images within .marketplace have consistent sizing */
+.marketplace img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+/* Image styling for the marketplace section */
+#cartimg, #checkoutimg, #searchimg {
+  width: 100%;
+  height: 100%;
+}
+
+
+.below{
+  
+  width: 100%;
+  align-items: left;
+
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* Footer or further sections */
+.footer {
+  margin-top: 20px;
+}

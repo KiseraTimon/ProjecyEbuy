@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EbuyRegional</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header-container">
+    <div class="logo-search slide-in">
+        <h1>EbuyRegional</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search products in EbuyRegional Store">
+        </div>
+    </div>
+    <div class="cart-account">
+        <a href="#cart" title="Cart">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+        <a href="#account" title="Account">
+            <i class="fas fa-user"></i>
+        </a>
+    </div>
+</div>
+
+
+    <!-- Store Banner (Carousel) -->
+    <section class="store-banner carousel">
+        <div class="carousel-images">
+            <img src="shopping14.jpeg" alt="Local Products" class="carousel-img">
+            <img src="shopping15.jpeg" alt="Discounts" class="carousel-img">
+            <img src="shopping4.jpeg" alt="Organic" class="carousel-img">
+        </div>
+        <div class="store-info">
+            <h2>Browse local products</h2>
+            <div class="store-controls">
+                <button class="animated-button">Discover</button>
+                <button class="animated-button">Add</button>
+                <button class="animated-button">Estimated</button>
+            </div>
+        </div>
+        <div class="store-discount pulse">
+            <i class="fas fa-star"></i> <!-- Star icon -->
+            <p> 50% Discount on selected items after 9pm daily</p>
+        </div>
+        
+        
+    </section>
+
+    <!-- Category Filters -->
+    <section class="category-filters">
+        <h3 class="fade-in">Filter by categories</h3>
+        <div class="categories">
+            <button class="animated-button">Top Offers</button>
+            <button class="animated-button">Delicious Treats</button>
+            <button class="animated-button">Refreshing Drinks</button>
+            <button class="animated-button">Miscellaneous</button>
+        </div>
+
+        <div class="food-categories">
+            <button class="animated-button">Fresh Fruits</button>
+            <button class="animated-button">Organic</button>
+            <button class="animated-button">Freshly Baked</button>
+            <button class="animated-button">Quality Meats</button>
+            <button class="animated-button">Tasty Snacks</button>
+            <button class="animated-button">Dairy Products</button>
+            <button class="animated-button">Fresh Seafood</button>
+            <button class="animated-button">Seasonings</button>
+            <button class="animated-button">Chilled</button>
+            <button class="animated-button">Organic-certified</button>
+            <button class="animated-button">Plant-based</button>
+            <button class="animated-button">Assorted</button>
+        </div>
+    </section>
+
+    <!-- Product Items -->
+    <section class="items">
+        <h3 class="fade-in">Recommended for you</h3>
+        <div class="item-grid">
+            <!-- Repeat this structure for each product -->
+            <div class="item slide-in-left">
+                <img src="shopping10.jpeg" alt="Product Image">
+                <p>Jordan</p>
+                <p>$3 / pc</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="item slide-in-left">
+                <img src="shopping4.jpeg" alt="Product Image">
+                <p>Black Forces</p>
+                <p>$5 / pc</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="item slide-in-left">
+                <img src="shopping8.jpeg" alt="Product Image">
+                <p>Marvins</p>
+                <p>$5 / pc</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+        <button class="show-more pulse">Refresh</button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-download bounce-in">
+            <h4>Download the EbuyRegional app and shop locally!</h4>
+            <div class="download-buttons">
+                <a href="#">Get on App Store</a>
+                <a href="#">Get on Google Play</a>
+                <a href="#">Get on EbuyRegional</a>
+            </div>
+        </div>
+        <div class="footer-info explode-in">
+            <p>Need assistance? Our support team is available:</p>
+            <p>Phone: +1 (433) 000 111</p>
+            <p>Email: support@ebuyregional.com</p>
+        </div>
+    </footer>
+
+    <script>
+
+
+
+        // Fade in elements
+const items = document.querySelectorAll('.item');
+const options = {
+    threshold: 0.5 // Trigger when 50% of the item is visible
+};
+
+// IntersectionObserver to trigger slide-in animations
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('slide-in-left');
+            observer.unobserve(entry.target);
+        }
+    });
+}, options);
+
+items.forEach(item => {
+    observer.observe(item);
+});
+
+// Carousel with actual images
+let carouselIndex = 0;
+const carouselImages = document.querySelectorAll('.carousel-img');
+
+function changeCarouselImage() {
+    carouselImages.forEach((img, index) => {
+        img.classList.remove('active');
+        if (index === carouselIndex) {
+            img.classList.add('active');
+        }
+    });
+    carouselIndex = (carouselIndex + 1) % carouselImages.length;
+}
+
+setInterval(changeCarouselImage, 3000); // Change carousel image every 3 seconds
+
+    </script>
+</body>
+</html>
