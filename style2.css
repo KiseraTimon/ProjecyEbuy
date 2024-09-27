@@ -1,12 +1,12 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #E8ECEB; /* Light background */
+    background-color: #E8ECEB; 
     overflow-x: hidden;
-    color: #2D3E4E; /* Dark text */
+    color: #2D3E4E;
 }
 
 @keyframes slide-in {
@@ -23,8 +23,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2D3E4E; /* Dark background */
-    color: white; /* White text for contrast */
+    background-color: #2D3E4E; 
+    color: white; 
     padding: 10px;
 }
 
@@ -36,37 +36,37 @@ body {
 
 .cart-account a {
     margin-left: 20px;
-    color: #E09E50; /* Accent color for icons */
+    color: #E09E50; 
     font-size: 24px;
     transition: color 0.3s, transform 0.3s;
 }
 
 .cart-account a:hover {
-    color: white; /* White on hover */
+    color: white; 
     transform: scale(1.1);
 }
 
 input[type="text"] {
     padding: 10px;
     width: 300px;
-    border: 1px solid #8CBDB9; /* Teal border */
+    border: 1px solid #8CBDB9; 
     transition: width 0.3s ease;
     margin-bottom: 20px;
 }
 
 input[type="text"]:focus {
     width: 400px;
-    border-color: #E09E50; /* Change border color on focus */
+    border-color: #E09E50; 
 }
 
 .store-banner {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    color: white; /* White text */
+    color: white; 
     animation: background-change 6s infinite alternate;
     position: relative;
-    background-color: #2D3E4E; /* Dark background */
+    background-color: #2D3E4E; 
 }
 
 .carousel-images {
@@ -95,8 +95,8 @@ input[type="text"]:focus {
 }
 
 .category-filters button {
-    background-color: #8CBDB9; /* Accent color */
-    color: white; /* White text */
+    background-color: #8CBDB9; 
+    color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -104,7 +104,7 @@ input[type="text"]:focus {
 }
 
 .category-filters button:hover {
-    background-color: #E09E50; /* Change hover color */
+    background-color: #E09E50; 
 }
 
 .items .item-grid {
@@ -115,7 +115,7 @@ input[type="text"]:focus {
 }
 
 .items .item {
-    background-color: #fff; /* White background for items */
+    background-color: #fff; 
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -139,11 +139,11 @@ input[type="text"]:focus {
 .items .item p {
     font-size: 16px;
     margin: 5px 0;
-    color: #2D3E4E; /* Dark text for item descriptions */
+    color: #2D3E4E; 
 }
 
 .items .add-to-cart {
-    background-color: #E09E50; /* Accent color */
+    background-color: #E09E50; 
     color: white;
     border: none;
     padding: 10px;
@@ -153,24 +153,24 @@ input[type="text"]:focus {
 }
 
 .items .add-to-cart:hover {
-    background-color: #8CBDB9; /* Teal on hover */
+    background-color: #8CBDB9; 
 }
 
 .footer {
-    background-color: #2D3E4E; /* Dark background */
-    color: #E8ECEB; /* Light text */
+    background-color: #2D3E4E; 
+    color: #E8ECEB; 
     padding: 20px;
     text-align: center;
 }
 
 footer a {
-    color: #E8ECEB; /* Light text */
+    color: #E8ECEB; 
     text-decoration: none;
     margin: 10px;
 }
 
 footer a:hover {
-    color: #E09E50; /* Accent color on hover */
+    color: #E09E50; 
 }
 
 .store-discount {
@@ -180,7 +180,7 @@ footer a:hover {
     text-align: center;
     display: flex;
     align-items: center;
-    color: white; /* White text */
+    color: white; 
 }
 
 .store-discount i {
@@ -188,10 +188,10 @@ footer a:hover {
     font-size: 10px;
 }
 
-/* Other animations and keyframes remain unchanged */
+
 
 .show-more {
-    background-color: #8CBDB9; /* Teal for the show more button */
+    background-color: #8CBDB9; 
 }
 
 .pulse {
@@ -206,7 +206,7 @@ footer a:hover {
 
 .animated-button {
     padding: 10px;
-    background-color: #E09E50; /* Accent color */
+    background-color: #E09E50; 
     border: none;
     margin: 10px;
     transition: transform 0.3s ease, background-color 0.3s;
@@ -216,13 +216,13 @@ footer a:hover {
 
 .animated-button:hover {
     transform: scale(1.2) rotate(5deg);
-    background-color: #8CBDB9; /* Teal on hover */
+    background-color: #8CBDB9; 
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
     body {
-        background-color: #E09E50; /* Accent background for medium screens */
+        background-color: #E09E50; 
     }
 
     .header-container {
@@ -235,11 +235,11 @@ footer a:hover {
     }
 
     .items .item-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust for smaller screens */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
     }
 
     input[type="text"] {
-        width: 100%; /* Full width on small screens */
+        width: 100%; 
     }
 
     .store-banner {
@@ -250,7 +250,7 @@ footer a:hover {
 
 @media (max-width: 480px) {
     body {
-        background-color: #8CBDB9; /* Teal background for very small screens */
+        background-color: #8CBDB9; 
     }
 
     .header-container {
@@ -258,15 +258,15 @@ footer a:hover {
     }
 
     .cart-account a {
-        font-size: 20px; /* Smaller icons */
+        font-size: 20px; 
     }
 
     .items .item {
-        padding: 10px; /* Reduced padding */
+        padding: 10px; 
     }
 }
 
-/* Footer Styles */
+
 footer {
     background-color: #2D3E4E;
     color: #fff;
