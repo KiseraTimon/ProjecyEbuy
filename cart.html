@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+       
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #8CBDB9; /* Soft teal for background */
+}
+
+header {
+    background-color: #2D3E4E; /* Dark blue-gray for header */
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    margin: 0;
+    color: white;
+}
+
+/* Cart Container */
+.cart-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #E09E50; /* Burnt orange for table headers */
+    color: white;
+}
+
+table img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.remove-btn {
+    background-color: #E09E50; 
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #D1843A; 
+}
+
+.cart-summary {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-summary h2 {
+    margin: 0;
+    color: #2D3E4E; 
+}
+
+.checkout-btn {
+    background-color: #2D3E4E; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #1D2C3B; 
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Shopping Cart</h1>
+    </header>
+
+    <div class="cart-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items added here -->
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <h2>Total: $<span id="cart-total">0.00</span></h2>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // Example cart data (can be fetched from a server in a real application)
+        const cartData = [
+            { id: 1, name: "Product 1", price: 19.99, quantity: 1, image: "https://via.placeholder.com/80" },
+            { id: 2, name: "Product 2", price: 39.99, quantity: 2, image: "https://via.placeholder.com/80" },
+            { id: 3, name: "Product 3", price: 29.99, quantity: 1, image: "https://via.placeholder.com/80" }
+        ];
+
+        // Function to display cart items
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById("cart-items");
+            cartItemsContainer.innerHTML = ""; // Clear existing items
+
+            let total = 0;
+
+            cartData.forEach(item => {
+                const subtotal = (item.price * item.quantity).toFixed(2);
+                total += parseFloat(subtotal);
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>
+                        <img src="${item.image}" alt="${item.name}">
+                        ${item.name}
+                    </td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>
+                        <input class="quantity-input" type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, this.value)">
+                    </td>
+                    <td>$${subtotal}</td>
+                    <td><button class="remove-btn" onclick="removeItem(${item.id})">Remove</button></td>
+                `;
+                cartItemsContainer.appendChild(row);
+            });
+
+            document.getElementById("cart-total").innerText = total.toFixed(2);
+        }
+
+        // Function to update the quantity of an item
+        function updateQuantity(id, quantity) {
+            const item = cartData.find(item => item.id === id);
+            if (item) {
+                item.quantity = parseInt(quantity);
+                displayCartItems();
+            }
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(id) {
+            const index = cartData.findIndex(item => item.id === id);
+            if (index !== -1) {
+                cartData.splice(index, 1); // Remove the item from cartData
+                displayCartItems();
+            }
+        }
+
+        // Initialize the cart display
+        displayCartItems();
+    </script>
+
+</body>
+</html>
