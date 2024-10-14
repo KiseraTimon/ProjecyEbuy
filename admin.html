@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ebuy Admin Interface</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Ebuy Admin</h2>
+    <ul>
+      <li><a href="#dashboard" onclick="showSection('dashboard')">Dashboard</a></li>
+      <li><a href="#users" onclick="showSection('users')">User Management</a></li>
+      <li><a href="#products" onclick="showSection('products')">Product Management</a></li>
+      <li><a href="#orders" onclick="showSection('orders')">Order Management</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section active">
+      <h2>Dashboard</h2>
+      <div class="dashboard-overview">
+        <div class="card">
+          <h3>Total Sales</h3>
+          <p id="total-sales">$0</p>
+        </div>
+        <div class="card">
+          <h3>Total Users</h3>
+          <p id="total-users">0</p>
+        </div>
+        <div class="card">
+          <h3>Total Orders</h3>
+          <p id="total-orders">0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Management Section -->
+    <section id="users" class="section">
+      <h2>User Management</h2>
+      <table id="user-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Product Management Section -->
+    <section id="products" class="section">
+      <h2>Product Management</h2>
+      <button onclick="addProduct()">Add Product</button>
+      <table id="product-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Order Management Section -->
+    <section id="orders" class="section">
+      <h2>Order Management</h2>
+      <table id="order-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Product</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
