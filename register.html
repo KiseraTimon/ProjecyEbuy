@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Customer Sign Up</h1>
+            <p>Welcome! Please fill in your details to create an account.</p>
+        </div>
+        
+        <!-- Email Input Form -->
+        <form id="signUpForm">
+            <div class="input-container">
+                <input type="text" id="signUpFname" name="fname" placeholder="First Name" required>
+            </div>
+            <div class="input-container">
+                <input type="text" id="signUpLname" name="lname" placeholder="Last Name" required>
+            </div>
+            <div class="input-container">
+                <input type="email" id="signUpEmail" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-container">
+                <input type="text" id="signUpPhone" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="input-container">
+                <input type="text" id="signUpAddress" name="address" placeholder="Address" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="signUpPassword" name="password" placeholder="Password" required>
+            </div>
+            <button type="button" onclick="sendVerificationCode()">Send Verification Code</button>
+        </form>
+        
+        <!-- Verification Code Input Form (Hidden Initially) -->
+        <form id="codeVerificationForm" style="display: none;">
+            <div class="input-container">
+                <input type="text" id="verificationCode" name="verificationCode" placeholder="Enter Verification Code" required>
+            </div>
+            <button type="button" onclick="verifyCode()">Verify Code</button>
+        </form>
+    </div>
+
+    <!-- Include FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Function to send the verification code via backend
+        function sendVerificationCode() {
+            const email = document.getElementById('signUpEmail').value;
+
+            // Send the verification code via backend
+            fetch('/send-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Verification code sent to your email!");
+                    document.getElementById('signUpForm').style.display = 'none';
+                    document.getElementById('codeVerificationForm').style.display = 'block';
+                } else {
+                    alert("Error sending verification code.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Function to verify the code
+        function verifyCode() {
+            const code = document.getElementById('verificationCode').value;
+
+            // Verify the code via backend
+            fetch('/verify-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ code: code }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Code verified successfully! Sign-up complete.");
+                    // You can now proceed with further steps (e.g., saving user data, redirecting, etc.)
+                } else {
+                    alert("Invalid code. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
