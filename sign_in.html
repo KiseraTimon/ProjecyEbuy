@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Customer Sign In</h1>
+            <p>Welcome back! Please enter your credentials to access your account.</p>
+        </div>
+        <form id="signInForm">
+            <div class="input-container">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="signInEmail" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="signInPassword" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+
+    <!-- Include FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        document.getElementById('signInForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const email = document.getElementById('signInEmail').value;
+            const password = document.getElementById('signInPassword').value;
+
+            alert("Sign-in successful! Welcome back, " + email);
+        });
+    </script>
+</body>
+</html>
