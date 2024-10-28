@@ -137,17 +137,17 @@ table img {
     </div>
 
     <script>
-        // Example cart data (can be fetched from a server in a real application)
+        // Examples of cart data 
         const cartData = [
             { id: 1, name: "Product 1", price: 19.99, quantity: 1, image: "https://via.placeholder.com/80" },
             { id: 2, name: "Product 2", price: 39.99, quantity: 2, image: "https://via.placeholder.com/80" },
             { id: 3, name: "Product 3", price: 29.99, quantity: 1, image: "https://via.placeholder.com/80" }
         ];
 
-        // Function to display cart items
+        
         function displayCartItems() {
             const cartItemsContainer = document.getElementById("cart-items");
-            cartItemsContainer.innerHTML = ""; // Clear existing items
+            cartItemsContainer.innerHTML = ""; 
 
             let total = 0;
 
@@ -174,7 +174,7 @@ table img {
             document.getElementById("cart-total").innerText = total.toFixed(2);
         }
 
-        // Function to update the quantity of an item
+       
         function updateQuantity(id, quantity) {
             const item = cartData.find(item => item.id === id);
             if (item) {
@@ -183,16 +183,16 @@ table img {
             }
         }
 
-        // Function to remove an item from the cart
+        
         function removeItem(id) {
             const index = cartData.findIndex(item => item.id === id);
             if (index !== -1) {
-                cartData.splice(index, 1); // Remove the item from cartData
+                cartData.splice(index, 1); 
                 displayCartItems();
             }
         }
 
-        // Initialize the cart display
+        
         displayCartItems();
     </script>
 
